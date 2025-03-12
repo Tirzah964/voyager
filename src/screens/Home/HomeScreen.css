@@ -1,0 +1,1207 @@
+.home-screen-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+    /* Subtract header height */
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background: none;
+    flex-direction: column;
+    /* Ensure no background color */
+}
+
+.overlay-div1 {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.overlay-div2 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.overlay-div3 {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-bottom: 2.5rem;
+}
+
+.contact-button {
+    background-color: #4cabd3;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #3d8aa9;
+}
+
+.internship-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 0 3rem 0;
+}
+
+.internship-header h1 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.internship-header h1::before {
+    content: "Get The Confidence You Need To";
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.internship-header h1::after {
+    content: "Succeed";
+    display: block;
+}
+
+/* Sections styling */
+.internship-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+    background-color: #4cabd3;
+}
+
+.content-section {
+    width: 75%;
+    min-height: auto;
+    padding: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 2rem;
+}
+
+/* Alternating Content Section Styling */
+.section-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* Keep some space between text and image */
+}
+
+.image-left {
+    flex-direction: row-reverse;
+    /* Image on left, text on right */
+}
+
+.image-right {
+    flex-direction: row;
+    /* Image on right, text on left */
+}
+
+.text-content {
+    flex: 1.4;
+    color: #333;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 30vw;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .content-section {
+        width: 90%;
+        padding: 0.5rem;
+    }
+
+    .section-content {
+        flex-direction: column !important;
+        gap: 0.5rem;
+    }
+
+    .image-container {
+        flex: 1;
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .image-container img {
+        max-width: 100%;
+    }
+
+    .text-content {
+        padding: 0.5rem;
+    }
+}
+
+.why-choose-section {
+    width: 75%;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #4cabd3;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title::before {
+    content: "Sailing Voyager Is More Than Just A";
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: "Superyacht Training Academy";
+    display: block;
+}
+
+.section-text-left {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.section-text-right {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .why-choose-section {
+        width: 90%;
+        padding: 1rem;
+    }
+}
+
+.content-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.content-column {
+    flex: 1;
+}
+
+.content-column p {
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.content-column .bold {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .content-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .content-column p {
+        text-align: left;
+    }
+}
+
+.course-section {
+    width: 100%;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4cabd3;
+}
+
+.course-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.course-header p {
+    color: #000000;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 5rem;
+}
+
+.course-header h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.course-cards {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 4rem;
+}
+
+.course-card {
+    flex: 1;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem 3rem 1rem;
+    background-color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.course-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.course-card p {
+    text-align: center;
+    color: #333;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .course-section {
+        width: 90%;
+    }
+
+    .course-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course-card {
+        width: 100%;
+    }
+}
+
+.stcw-section {
+    width: 80%;
+    /* Limit overall width to 85% */
+    margin: 0 auto;
+    /* Center the section */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stcw-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.stcw-header p {
+    color: #000000;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+}
+
+.stcw-header h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.stcw-container {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    padding: 2rem;
+    gap: 3rem;
+}
+
+.stcw-text-column {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.stcw-text-block {
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+}
+
+.stcw-title {
+    font-weight: bold;
+    font-size: 1.0rem;
+    color: #333;
+}
+
+.stcw-description {
+    color: #666;
+    line-height: 1;
+    padding-top: 1rem;
+}
+
+.stcw-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.stcw-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .stcw-section {
+        width: 90%;
+    }
+
+    .stcw-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.logo-section {
+    background-color: #4cabd3;
+    padding: 2rem 0rem 2rem 0rem;
+    width: 100%;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.main-logo {
+    margin-bottom: 2rem;
+    max-width: 200px;
+}
+
+.main-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.logo-text {
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    color: #333;
+    width: 50%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+}
+
+.partner-logo {
+    max-width: 150px;
+}
+
+.partner-logo img {
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .logo-section {
+        width: 90%;
+    }
+
+    .partner-logos {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .logo-text {
+        width: 90%;
+    }
+}
+
+.gallery-section {
+    width: 80%;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gallery-header p {
+    color: #4cabd3;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.gallery-header h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    padding-top: 66.67%;
+    border: 0.5rem solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-nav-button {
+    position: absolute;
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    font-size: 1.2rem;
+}
+
+.gallery-nav-button.prev {
+    left: -50px;
+}
+
+.gallery-nav-button.next {
+    right: -50px;
+}
+
+.gallery-pagination {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.pagination-dot.active {
+    background-color: #4cabd3;
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-section {
+        width: 90%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .gallery-nav-button.prev {
+        left: -20px;
+    }
+
+    .gallery-nav-button.next {
+        right: -20px;
+    }
+}
+
+/* Dialog styling */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialog-content {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 10px;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.dialog-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+.dialog-close:hover {
+    background-color: #e0e0e0;
+}
+
+.dialog-content h2 {
+    color: #4cabd3;
+    margin-bottom: 1rem;
+}
+
+.dialog-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.dialog-details {
+    margin-bottom: 2rem;
+}
+
+.dialog-detail-item {
+    margin-bottom: 0.5rem;
+}
+
+.dialog-button {
+    margin-top: 1rem;
+}
+
+/* Prevent body scrolling when dialog is open */
+body.dialog-open {
+    overflow: hidden;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #4cabd3;
+    padding: 3rem 0;
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.testimonials-header p {
+    color: black;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.testimonials-header h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.testimonials-container {
+    position: relative;
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonials-row {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.testimonial-card {
+    flex: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.testimonial-text {
+    flex-grow: 1;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    overflow-y: auto;
+    font-size: 1.05rem;
+}
+
+.testimonial-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.testimonial-role {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.testimonial-nav-button {
+    position: absolute;
+    background: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    font-size: 1.3rem;
+}
+
+.testimonial-nav-button.prev {
+    left: -60px;
+}
+
+.testimonial-nav-button.next {
+    right: -60px;
+}
+
+.testimonial-pagination {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .testimonials-container {
+        width: 90%;
+    }
+
+    .testimonials-row {
+        flex-wrap: wrap;
+    }
+
+    .testimonial-card {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: calc(50% - 0.5rem);
+        aspect-ratio: auto;
+        min-height: 250px;
+    }
+
+    .testimonial-nav-button.prev {
+        left: -30px;
+    }
+
+    .testimonial-nav-button.next {
+        right: -30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .testimonial-card {
+        flex: 1 1 100%;
+        min-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .testimonial-nav-button.prev {
+        left: -20px;
+    }
+
+    .testimonial-nav-button.next {
+        right: -20px;
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 0;
+    background-color: #f5f5f5;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.contact-header p {
+    color: black;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-header h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.contact-container {
+    display: flex;
+    width: 80%;
+    gap: 2rem;
+    height: 400px;
+}
+
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.contact-us-button {
+    background-color: #4cabd3;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+    font-weight: 500;
+}
+
+.contact-us-button:hover {
+    background-color: #3d8aa9;
+}
+
+.contact-map {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .contact-info {
+        padding: 1.5rem;
+    }
+
+    .contact-map {
+        height: 300px;
+    }
+
+    .contact-us-button {
+        align-self: center;
+    }
+}
+
+/* Footer Section */
+.footer-section {
+    width: 100%;
+    background-color: #4cabd3;
+    color: white;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 1.5rem;
+    max-width: 150px;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: auto;
+    /* filter: brightness(0) invert(1); */
+    /* Make logo white */
+}
+
+.footer-info {
+    margin-bottom: 1.5rem;
+}
+
+.footer-heading {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-text {
+    line-height: 1.6;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Responsive improvements for mobile and tablet devices */
+
+/* General responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .overlay-div2 {
+        font-size: 4rem;
+        /* Slightly smaller font on tablets */
+    }
+
+    .image-container img {
+        max-width: 40vw;
+        /* Slightly larger images on tablets */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .overlay-div1 {
+        font-size: 1.5rem;
+    }
+
+    .overlay-div2 {
+        font-size: 3rem;
+        /* Smaller font on mobile */
+    }
+
+    .overlay-div3 {
+        font-size: 1.2rem;
+    }
+
+    .internship-header h1::before,
+    .internship-header h1::after {
+        font-size: 1.5rem;
+        /* Smaller header text on mobile */
+    }
+
+    .content-section h2 {
+        font-size: 1.5rem;
+        /* Smaller section headers on mobile */
+    }
+
+    .section-title::before,
+    .section-title::after {
+        font-size: 1.5rem;
+    }
+
+    /* Ensure all sections have proper padding on mobile */
+    .internship-container,
+    .why-choose-section,
+    .course-section,
+    .stcw-section,
+    .logo-section,
+    .gallery-section,
+    .testimonials-section,
+    .contact-section,
+    .footer-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Specific improvements for course cards */
+@media screen and (max-width: 1024px) {
+    .course-cards {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .course-card {
+        flex: 0 0 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .course-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* STCW section improvements */
+@media screen and (max-width: 1024px) {
+    .stcw-container {
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .stcw-container {
+        flex-direction: column-reverse;
+        /* Image first, then text on mobile */
+        padding: 1rem;
+    }
+
+    .stcw-image {
+        margin-bottom: 1.5rem;
+    }
+
+    .stcw-text-column {
+        gap: 1.5rem;
+    }
+}
+
+/* Gallery improvements */
+@media screen and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .gallery-nav-button {
+        width: 35px;
+        height: 35px;
+    }
+
+    .gallery-nav-button.prev {
+        left: -15px;
+    }
+
+    .gallery-nav-button.next {
+        right: -15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        /* Single column on very small screens */
+        grid-template-rows: repeat(6, 1fr);
+    }
+}
+
+/* Contact section improvements */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact-info {
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-map {
+        height: 250px;
+    }
+}
+
+/* Footer improvements */
+@media screen and (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 1rem;
+    }
+
+    .footer-info {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Fix for dialog on mobile */
+@media screen and (max-width: 768px) {
+    .dialog-content {
+        width: 95%;
+        padding: 1.5rem;
+        max-height: 90vh;
+    }
+
+    .dialog-close {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+/* Fix for testimonials on small screens */
+@media screen and (max-width: 480px) {
+    .testimonial-card {
+        aspect-ratio: auto;
+        min-height: 200px;
+    }
+
+    .testimonial-text {
+        font-size: 0.95rem;
+    }
+
+    .testimonial-name {
+        font-size: 1rem;
+    }
+
+    .testimonial-role {
+        font-size: 0.85rem;
+    }
+}
