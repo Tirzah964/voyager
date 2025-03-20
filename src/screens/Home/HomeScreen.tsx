@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./HomeScreen.css";
 
@@ -110,10 +110,10 @@ const HomeScreen: React.FC = () => {
         </video>
 
         <div className="overlay">
-          <div className="overlay-div1">Welcome to</div>
-          <div className="overlay-div2">Sailing Voyager</div>
-          <div className="overlay-div3">Your journey starts here</div>
-          <Link to="/contact" className="contact-button">
+          <div className="overlay-div1 pt-sans-regular-italic">Welcome to</div>
+          <div className="overlay-div2 trirong-thin-italic">Sailing Voyager</div>
+          <div className="overlay-div3 pt-sans-regular-italic">Your journey starts here</div>
+          <Link to="/contact" className="contact-button pt-sans-regular">
             Start your voyage
           </Link>
         </div>
@@ -121,7 +121,7 @@ const HomeScreen: React.FC = () => {
 
       {/* Internship Program Section */}
       <div className="internship-container">
-        <div id="internship" className="internship-header">
+        <div id="internship" className="internship-header trirong-thin-italic">
           <p style={{ paddingBottom: "1rem" }}>Internship Program</p>
           <h1></h1>
         </div>
@@ -129,7 +129,7 @@ const HomeScreen: React.FC = () => {
         {internships.map((section, index) => (
           <section className="content-section" key={index}>
             <div className={`section-content image-${section.imagePosition}`}>
-              <div className="text-content">
+              <div className="text-content pt-sans-regular">
                 <h2>{section.title}</h2>
                 <div className="feature-list">
                   {section.description.map((item, itemIndex) => (
@@ -147,12 +147,12 @@ const HomeScreen: React.FC = () => {
 
       {/* Why Choose Us Section */}
       <div className="why-choose-section">
-        <p className="section-subtitle">WHY CHOOSE US</p>
-        <h2 className="section-title"></h2>
+        <p className="section-subtitle pt-sans-bold">WHY CHOOSE US</p>
+        <h2 className="section-title trirong-thin-italic"></h2>
         <div className="content-row">
           <div className="content-column">
-            <p className="bold">Beyond Training: A BOATique Approach</p>
-            <p>
+            <p className="bold pt-sans-regular">Beyond Training: A BOATique Approach</p>
+            <p className="pt-sans-regular">
               Pull North is more than a Superyacht Training Academy; it's a
               launchpad for ambition and growth. We offer visa assistance,
               expert advice, and a supportive community of seasoned
@@ -162,8 +162,8 @@ const HomeScreen: React.FC = () => {
             </p>
           </div>
           <div className="content-column">
-            <p className="bold">Beyond Training: A BOATique Approach</p>
-            <p>
+            <p className="bold pt-sans-regular">Beyond Training: A BOATique Approach</p>
+            <p className="pt-sans-regular">
               Pull North is more than a Superyacht Training Academy; it's a
               launchpad for ambition and growth. We offer visa assistance,
               expert advice, and a supportive community of seasoned
@@ -178,8 +178,8 @@ const HomeScreen: React.FC = () => {
       {/* Courses Section */}
       <div id="course-section" className="course-section">
         <div className="course-header">
-          <p>WHAT KIND OF YACHTIE ARE YOU</p>
-          <h2>Superyacht Training Courses</h2>
+          <p className="pt-sans-regular">WHAT KIND OF YACHTIE ARE YOU</p>
+          <h2 className="trirong-thin-italic">Superyacht Training Courses</h2>
         </div>
         <div className="course-cards">
           {courseDetails.map((course, index) => (
@@ -189,7 +189,7 @@ const HomeScreen: React.FC = () => {
               onClick={() => openCourseDialog(index)}
             >
               <img src={killer_whale} alt={`${course.title}`} />
-              <p>{course.title}</p>
+              <p className="pt-sans-bold">{course.title}</p>
             </div>
           ))}
         </div>
@@ -202,7 +202,7 @@ const HomeScreen: React.FC = () => {
             <button className="dialog-close" onClick={closeCourseDialog}>
               ×
             </button>
-            <h2>{courseDetails[selectedCourse].title}</h2>
+            <h2 className="trirong-thin-italic">{courseDetails[selectedCourse].title}</h2>
             <p className="dialog-description">
               {courseDetails[selectedCourse].description}
             </p>
@@ -227,7 +227,7 @@ const HomeScreen: React.FC = () => {
       <div id="stcw-section" className="stcw-section">
         <div className="stcw-header">
           <p>STCW</p>
-          <h2>Get STCW Certified and Ready</h2>
+          <h2 className="trirong-thin-italic">Get STCW Certified and Ready</h2>
         </div>
         <div className="stcw-container">
           <div className="stcw-text-column">

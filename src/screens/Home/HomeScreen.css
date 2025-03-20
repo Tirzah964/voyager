@@ -1,3 +1,5 @@
+@import url('../../global_styles.css');
+
 .home-screen-container {
     position: relative;
     width: 100%;
@@ -39,6 +41,7 @@
 }
 
 .overlay-div2 {
+    font-family: "trirong-thin-italic";
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: white;
