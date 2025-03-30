@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./HomeScreen.css";
+// import "./HomeScreen.css";
 
 // Import assets
 import backgroundVideo from "../../assets/samplevid.mp4";
@@ -103,25 +103,32 @@ const HomeScreen: React.FC = () => {
   return (
     <>
       {/* Welcome Screen Container */}
-      <div className="home-screen-container">
-        {/* Video */}
+
+      <div className="section-fullscreen">
         <video className="background-video" autoPlay loop muted playsInline>
           <source src={backgroundVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
-        <div className="overlay">
-          <div className="overlay-div1">Welcome to</div>
-          <div className="overlay-div2">Sailing Voyager</div>
-          <div className="overlay-div3">Your journey starts here</div>
-          <Link to="/contact" className="contact-button">
-            Start your voyage
-          </Link>
+        <div className="section-content">
+          <div className="content-column">
+
+            <div className="overlay-div1">Welcome to</div>
+            <h1>Sailing Voyager</h1>
+            <div className="overlay-div3">Your journey starts here</div>
+            <Link to="/contact" className="button">
+              Start your voyage
+            </Link>
+          </div>
         </div>
       </div>
 
+      {/* <div className="home-screen-container">
+
+      </div> */}
+
       {/* Internship Program Section */}
-      <div className="internship-container">
+      {/* <div className="internship-container">
         <div id="internship" className="internship-header">
           <p style={{ paddingBottom: "1rem" }}>Internship Program</p>
           <h1></h1>
@@ -144,21 +151,22 @@ const HomeScreen: React.FC = () => {
             </div>
           </section>
         ))}
-      </div>
+      </div> */}
 
       {/* Why Choose Us Section */}
       <div className="section">
+
+        <div className="section-header">
+          <p className="section-subtitle">WHY CHOOSE US</p>
+          <h2 className="section-title">Sailing Voyager Is More Than Just A Superyacht Training Academy</h2>
+        </div>
+
         <div className="section-content">
-
-          <div className="section-header">
-            <p className="section-subtitle">WHY CHOOSE US</p>
-            <h2 className="section-title">Sailing Voyager Is More Than Just A Superyacht Training Academy</h2>
-          </div>
-
           <div className="content-row">
+
             <div className="content-column">
               <div>
-                <p className="body-header text-center">Beyond Training: A BOATique Approach</p>
+                <h3 className="text-center">Beyond Training: A BOATique Approach</h3>
                 <p className="text-center">
                   Pull North is more than a Superyacht Training Academy; it's a
                   launchpad for ambition and growth. We offer visa assistance,
@@ -172,7 +180,7 @@ const HomeScreen: React.FC = () => {
 
             <div className="content-column">
               <div>
-                <p className="body-header text-center">Beyond Training: A BOATique Approach</p>
+                <h3 className="text-center">Beyond Training: A BOATique Approach</h3>
                 <p className="text-center">
                   Pull North is more than a Superyacht Training Academy; it's a
                   launchpad for ambition and growth. We offer visa assistance,
@@ -190,13 +198,13 @@ const HomeScreen: React.FC = () => {
 
       {/* Courses Section */}
       <div id="course-section" className="section bg-secondary-color">
+
+        <div className="section-header">
+          <p className="section-subtitle">WHAT KIND OF YACHTIE ARE YOU</p>
+          <h2 className="section-title">Superyacht Training Courses</h2>
+        </div>
+
         <div className="section-content">
-          <div className="section-header">
-            <p className="section-subtitle">WHAT KIND OF YACHTIE ARE YOU</p>
-            <h2 className="section-title">Superyacht Training Courses</h2>
-          </div>
-
-
           <div className="content-row">
             {courseDetails.map((course, index) => (
               <div
@@ -242,12 +250,13 @@ const HomeScreen: React.FC = () => {
 
       {/* Services Section */}
       <div id="stcw-section" className="section bg-tertiary-color">
-        <div className="section-content">
 
-          <div className="section-header">
-            <p className="section-subtitle">STCW</p>
-            <h2 className="section-title">Get STCW Certified and Ready</h2>
-          </div>
+        <div className="section-header">
+          <p className="section-subtitle">STCW</p>
+          <h2 className="section-title">Get STCW Certified and Ready</h2>
+        </div>
+
+        <div className="section-content">
 
           <div className="content-row">
             <div className="card">
@@ -257,7 +266,7 @@ const HomeScreen: React.FC = () => {
             <div className="content-column">
               {stcwBlocks.map((block, index) => (
                 <div key={index}>
-                  <p className="body-header">{block.title}</p>
+                  <h3>{block.title}</h3>
                   <p>{block.description}</p>
                 </div>
               ))}
@@ -283,7 +292,7 @@ const HomeScreen: React.FC = () => {
             </p>
           </div>
 
-          <div className="content-row">
+          <div className="content-row align-self-center">
             <div className="logo-partner">
               <img src={logo} alt="Partner Logo 1" />
             </div>
@@ -298,6 +307,7 @@ const HomeScreen: React.FC = () => {
 
       </div>
 
+      {/* Gallery Section */}
       <div id="gallery-section" className="section bg-tertiary-color">
 
         <div className="section-header">
@@ -311,14 +321,14 @@ const HomeScreen: React.FC = () => {
             <div className="content-grid">
               {galleryPages[currentGalleryPage].map((image, index) => (
                 <div className="card" key={index}>
-                  <img className="lock-aspect-ratio" src={image} alt={`Gallery image ${index + 1}`} />
+                  <img className="aspect-ratio-16-9" src={image} alt={`Gallery image ${index + 1}`} />
                 </div>
               ))}
             </div>
 
           </div>
 
-          <div className="content-row">
+          <div className="content-row align-self-center">
             {Array.from({ length: totalPages }).map((_, index) => (
               <div
                 key={index}
@@ -385,38 +395,44 @@ const HomeScreen: React.FC = () => {
       </div>
 
       {/* Contact Section */}
-      <div className="section">
+      <div id="stcw-section" className="section bg-tertiary-color">
 
-      <div className="section-header">
+        <div className="section-header">
           <p className="section-subtitle">Contact Us</p>
           <h2 className="section-title">We Want To Hear From You</h2>
         </div>
 
+        <div className="section-content">
 
-        <div className="contact-container">
-          <div className="contact-info">
-            <h3>Ready to start your sailing journey?</h3>
-            <p>
-              Our team is here to answer all your questions about our courses,
-              internships, and how to begin your career in yachting.
-            </p>
-            <button className="contact-us-button" onClick={handleContactClick}>
-              Get In Touch
-            </button>
+          <div className="content-row">
+            <div className="card aspect-ratio-16-9">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53487.42621493518!2d22.09012543976928!3d-34.17538326099499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dd61e5e8c0b9385%3A0x779f4b23e7d69df3!2sMossel%20Bay!5e0!3m2!1sen!2sza!4v1689324567890!5m2!1sen!2sza"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mossel Bay Map"
+              ></iframe>
+            </div>
+
+            <div className="content-column">
+              <div>
+                <h3>Ready to start your sailing journey?</h3>
+                <p>
+                  Our team is here to answer all your questions about our courses,
+                  internships, and how to begin your career in yachting.
+                </p>
+              </div>
+
+              <button className="button" onClick={handleContactClick}>
+                Get In Touch
+              </button>
+            </div>
           </div>
 
-          <div className="contact-map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53487.42621493518!2d22.09012543976928!3d-34.17538326099499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dd61e5e8c0b9385%3A0x779f4b23e7d69df3!2sMossel%20Bay!5e0!3m2!1sen!2sza!4v1689324567890!5m2!1sen!2sza"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Mossel Bay Map"
-            ></iframe>
-          </div>
         </div>
       </div>
 
@@ -464,7 +480,7 @@ const HomeScreen: React.FC = () => {
             </div>
 
 
-            <div className="content-row">
+            <div className="content-row align-self-center">
               <a
                 href="https://facebook.com/your-facebook-page"
                 target="_blank"
