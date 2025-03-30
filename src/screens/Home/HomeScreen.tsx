@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./HomeScreen.css";
+import { useSwipeable } from "react-swipeable";
 
 // Import assets
 import backgroundVideo from "../../assets/samplevid.mp4";
@@ -12,16 +13,6 @@ import testimonials from "../../static_text/testimonials";
 import courseDetails from "../../static_text/courseDetails";
 import internships from "../../static_text/internships";
 import stcwBlocks from "../../static_text/stcw";
-
-const galleryImages = Array.from({ length: 30 }, (_, i) => {
-  try {
-    return require(`../../assets/gallery/example${i + 1}.jpg`);
-  } catch (e) {
-    // Fallback in case an image doesn't exist
-    console.warn(`Image example${i + 1}.jpg not found`);
-    return null;
-  }
-}).filter(Boolean); // Remove any null values
 
 const HomeScreen: React.FC = () => {
   const location = useLocation();
@@ -42,20 +33,108 @@ const HomeScreen: React.FC = () => {
   // State for gallery pagination
   const [currentGalleryPage, setCurrentGalleryPage] = useState(0);
 
-  // Group images into pages of 6 (2x3 grid)
-  const galleryPages = [];
-  for (let i = 0; i < galleryImages.length; i += 6) {
-    galleryPages.push(galleryImages.slice(i, i + 6));
-  }
+  // Replace the existing galleryImages code with this:
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
 
-  const totalPages = galleryPages.length;
+  // Add a loading state
+  const [galleryLoading, setGalleryLoading] = useState(true);
+
+  // Use useEffect to load images dynamically
+  useEffect(() => {
+    // Function to load all available gallery images
+    const loadGalleryImages = async () => {
+      setGalleryLoading(true);
+      const importedImages: string[] = [];
+      let index = 1;
+      let continueLoading = true;
+      let consecutiveFailures = 0; // Track consecutive failures
+
+      // Keep trying to load images until multiple consecutive failures
+      // This handles gaps in image numbering
+      while (continueLoading && consecutiveFailures < 3) {
+        try {
+          const image = require(`../../assets/gallery/example${index}.jpg`);
+          importedImages.push(image);
+          index++;
+          consecutiveFailures = 0; // Reset failure counter on success
+        } catch (e) {
+          // Failed to load this index
+          consecutiveFailures++;
+          index++; // Try the next index
+
+          // Stop if we've had too many consecutive failures
+          if (consecutiveFailures >= 3) {
+            continueLoading = false;
+          }
+        }
+      }
+
+      console.log(`Gallery: Loaded ${importedImages.length} images`);
+      setGalleryImages(importedImages);
+      setGalleryLoading(false);
+    };
+
+    loadGalleryImages();
+  }, []);
+
+  // Group images into pages of 6 for desktop and 3 for mobile
+  const getGalleryPages = () => {
+    const isMobile = window.innerWidth <= 768;
+    const imagesPerPage = isMobile ? 3 : 6;
+
+    const pages = [];
+    for (let i = 0; i < galleryImages.length; i += imagesPerPage) {
+      pages.push(galleryImages.slice(i, i + imagesPerPage));
+    }
+    return pages;
+  };
+
+  const [galleryPages, setGalleryPages] = useState<string[][]>([]);
+  const [totalPages, setTotalPages] = useState(0);
+
+  // Update pages when window resizes or images load
+  useEffect(() => {
+    const handleResize = () => {
+      const newPages = getGalleryPages();
+      setGalleryPages(newPages);
+      setTotalPages(newPages.length);
+    };
+
+    handleResize(); // Initial calculation
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [galleryImages]);
+
+  // Set up swipe handlers
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => handleNextGallery(),
+    onSwipedRight: () => handlePrevGallery(),
+    trackMouse: true,
+    preventScrollOnSwipe: true,
+    delta: 10,
+    swipeDuration: 500,
+  });
+
+  // Make sure currentGalleryPage is always valid
+  useEffect(() => {
+    if (totalPages > 0 && currentGalleryPage >= totalPages) {
+      setCurrentGalleryPage(0);
+    }
+  }, [galleryImages, totalPages, currentGalleryPage]);
 
   const handleNextGallery = () => {
-    setCurrentGalleryPage((prev) => (prev + 1) % totalPages);
+    if (totalPages > 0) {
+      setCurrentGalleryPage((prev) => (prev + 1) % totalPages);
+    }
   };
 
   const handlePrevGallery = () => {
-    setCurrentGalleryPage((prev) => (prev - 1 + totalPages) % totalPages);
+    if (totalPages > 0) {
+      setCurrentGalleryPage((prev) => (prev - 1 + totalPages) % totalPages);
+    }
   };
 
   // State for course dialog
@@ -274,45 +353,64 @@ const HomeScreen: React.FC = () => {
           <h2>Unforgettable moments</h2>
         </div>
 
-        <div className="gallery-container">
-          {currentGalleryPage > 0 && (
-            <button
-              className="gallery-nav-button prev"
-              onClick={handlePrevGallery}
-            >
-              &larr;
-            </button>
-          )}
+        {galleryLoading ? (
+          <div className="gallery-loading">Loading gallery images...</div>
+        ) : galleryPages.length === 0 ? (
+          <div className="gallery-empty">No gallery images found</div>
+        ) : (
+          <>
+            <div className="gallery-container" {...swipeHandlers}>
+              {totalPages > 1 && (
+                <button
+                  className="gallery-nav-button prev"
+                  onClick={handlePrevGallery}
+                  aria-label="Previous gallery page"
+                >
+                  &larr;
+                </button>
+              )}
 
-          <div className="gallery-grid">
-            {galleryPages[currentGalleryPage].map((image, index) => (
-              <div className="gallery-item" key={index}>
-                <img src={image} alt={`Gallery image ${index + 1}`} />
+              <div className="gallery-grid">
+                {/* Conditionally render only 3 images on mobile */}
+                {window.innerWidth <= 768
+                  ? galleryPages[currentGalleryPage]
+                      ?.slice(0, 3)
+                      .map((image, index) => (
+                        <div className="gallery-item" key={index}>
+                          <img src={image} alt={`Gallery image ${index + 1}`} />
+                        </div>
+                      ))
+                  : galleryPages[currentGalleryPage]?.map((image, index) => (
+                      <div className="gallery-item" key={index}>
+                        <img src={image} alt={`Gallery image ${index + 1}`} />
+                      </div>
+                    ))}
               </div>
-            ))}
-          </div>
 
-          {currentGalleryPage < totalPages - 1 && (
-            <button
-              className="gallery-nav-button next"
-              onClick={handleNextGallery}
-            >
-              &rarr;
-            </button>
-          )}
-        </div>
+              {totalPages > 1 && (
+                <button
+                  className="gallery-nav-button next"
+                  onClick={handleNextGallery}
+                  aria-label="Next gallery page"
+                >
+                  &rarr;
+                </button>
+              )}
+            </div>
 
-        <div className="gallery-pagination">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <div
-              key={index}
-              className={`pagination-dot ${
-                index === currentGalleryPage ? "active" : ""
-              }`}
-              onClick={() => setCurrentGalleryPage(index)}
-            />
-          ))}
-        </div>
+            <div className="gallery-pagination">
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <div
+                  key={index}
+                  className={`pagination-dot ${
+                    index === currentGalleryPage ? "active" : ""
+                  }`}
+                  onClick={() => setCurrentGalleryPage(index)}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
       {/* Testimonials Section */}

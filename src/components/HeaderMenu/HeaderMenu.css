@@ -65,6 +65,7 @@ nav ul li a:hover {
   }
 }
 
+/* Notification Banner Styles - Updated for better mobile centering */
 .notification-banner {
   background-color: #4cabd3;
   color: #fff;
@@ -72,23 +73,33 @@ nav ul li a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   font-weight: bold;
   position: relative;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .notification-banner .message-container {
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* Center the content */
   gap: 8px;
   color: #fff;
+  text-align: center;
+  /* Center the text */
+  width: 100%;
+  /* Ensure the container takes full width */
+  max-width: calc(100% - 40px);
+  /* Account for close button width */
 }
 
 .notification-banner .bell-icon {
   display: flex;
   align-items: center;
   color: #fff;
+  flex-shrink: 0;
+  /* Prevent the icon from shrinking */
 }
 
 .close-button {
@@ -109,6 +120,27 @@ nav ul li a:hover {
   color: #e9ecef;
 }
 
+/* Notification banner responsive fixes */
+@media screen and (max-width: 768px) {
+  .notification-banner {
+    padding: 10px 30px 10px 10px;
+    /* Add more right padding to accommodate close button */
+    font-size: 0.9rem;
+  }
+
+  .notification-banner .message-container {
+    justify-content: center;
+    /* Ensure center alignment on mobile */
+    text-align: center;
+    margin: 0 auto;
+    /* Center the container */
+  }
+
+  .close-button {
+    right: 10px;
+  }
+}
+
 /* Main content styles */
 main {
   width: 100%;
@@ -127,8 +159,10 @@ main {
 
 @media screen and (max-width: 768px) {
   .header-menu {
+    flex-direction: row;
     padding: 15px 20px;
-    position: relative;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .mobile-menu-button {
@@ -166,17 +200,5 @@ main {
   nav ul li a {
     display: block;
     padding: 0.5rem;
-  }
-}
-
-/* Notification banner responsive fixes */
-@media screen and (max-width: 768px) {
-  .notification-banner {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-
-  .close-button {
-    right: 10px;
   }
 }
