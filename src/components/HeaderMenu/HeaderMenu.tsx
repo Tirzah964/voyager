@@ -52,7 +52,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({
   return (
     <>
       <header className="header-menu">
-        <div className="logo">LOGO</div>
+        <div className="navbar-logo"></div>
         <button
           className="mobile-menu-button"
           onClick={toggleMenu}

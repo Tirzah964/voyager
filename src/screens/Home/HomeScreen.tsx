@@ -7,6 +7,7 @@ import backgroundVideo from "../../assets/samplevid.mp4";
 import kitten from "../../assets/kitten.jpg";
 import killer_whale from "../../assets/killer_whale.jpg";
 import logo from "../../assets/logo.jpg";
+import logoLarge from "../../assets/Sailing_Logo_L.jpg";
 // Import static text
 import testimonials from "../../static_text/testimonials";
 import courseDetails from "../../static_text/courseDetails";
@@ -146,52 +147,68 @@ const HomeScreen: React.FC = () => {
       </div>
 
       {/* Why Choose Us Section */}
-      <div className="why-choose-section">
-        <p className="section-subtitle">WHY CHOOSE US</p>
-        <h2 className="section-title"></h2>
-        <div className="content-row">
-          <div className="content-column">
-            <p className="bold">Beyond Training: A BOATique Approach</p>
-            <p>
-              Pull North is more than a Superyacht Training Academy; it's a
-              launchpad for ambition and growth. We offer visa assistance,
-              expert advice, and a supportive community of seasoned
-              professionals dedicated to your success. From landing your first
-              job to building a long-term career, we help you cultivate the
-              skills and mindset needed to thrive in the industry.
-            </p>
+      <div className="section">
+        <div className="section-content">
+
+          <div className="section-header">
+            <p className="section-subtitle">WHY CHOOSE US</p>
+            <h2 className="section-title">Sailing Voyager Is More Than Just A Superyacht Training Academy</h2>
           </div>
-          <div className="content-column">
-            <p className="bold">Beyond Training: A BOATique Approach</p>
-            <p>
-              Pull North is more than a Superyacht Training Academy; it's a
-              launchpad for ambition and growth. We offer visa assistance,
-              expert advice, and a supportive community of seasoned
-              professionals dedicated to your success. From landing your first
-              job to building a long-term career, we help you cultivate the
-              skills and mindset needed to thrive in the industry.
-            </p>
+
+          <div className="content-row">
+            <div className="content-column">
+              <div>
+                <p className="body-header text-center">Beyond Training: A BOATique Approach</p>
+                <p className="text-center">
+                  Pull North is more than a Superyacht Training Academy; it's a
+                  launchpad for ambition and growth. We offer visa assistance,
+                  expert advice, and a supportive community of seasoned
+                  professionals dedicated to your success. From landing your first
+                  job to building a long-term career, we help you cultivate the
+                  skills and mindset needed to thrive in the industry.
+                </p>
+              </div>
+            </div>
+
+            <div className="content-column">
+              <div>
+                <p className="body-header text-center">Beyond Training: A BOATique Approach</p>
+                <p className="text-center">
+                  Pull North is more than a Superyacht Training Academy; it's a
+                  launchpad for ambition and growth. We offer visa assistance,
+                  expert advice, and a supportive community of seasoned
+                  professionals dedicated to your success. From landing your first
+                  job to building a long-term career, we help you cultivate the
+                  skills and mindset needed to thrive in the industry.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
 
       {/* Courses Section */}
-      <div id="course-section" className="course-section">
-        <div className="course-header">
-          <p>WHAT KIND OF YACHTIE ARE YOU</p>
-          <h2>Superyacht Training Courses</h2>
-        </div>
-        <div className="course-cards">
-          {courseDetails.map((course, index) => (
-            <div
-              className="course-card"
-              key={index}
-              onClick={() => openCourseDialog(index)}
-            >
-              <img src={killer_whale} alt={`${course.title}`} />
-              <p>{course.title}</p>
-            </div>
-          ))}
+      <div id="course-section" className="section bg-secondary-color">
+        <div className="section-content">
+          <div className="section-header">
+            <p className="section-subtitle">WHAT KIND OF YACHTIE ARE YOU</p>
+            <h2 className="section-title">Superyacht Training Courses</h2>
+          </div>
+
+
+          <div className="content-row">
+            {courseDetails.map((course, index) => (
+              <div
+                className="card"
+                key={index}
+                onClick={() => openCourseDialog(index)}
+              >
+                <img src={killer_whale} alt={`${course.title}`} />
+                <h3>{course.title}</h3>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -224,95 +241,96 @@ const HomeScreen: React.FC = () => {
       )}
 
       {/* Services Section */}
-      <div id="stcw-section" className="stcw-section">
-        <div className="stcw-header">
-          <p>STCW</p>
-          <h2>Get STCW Certified and Ready</h2>
-        </div>
-        <div className="stcw-container">
-          <div className="stcw-text-column">
-            {stcwBlocks.map((block, index) => (
-              <div className="stcw-text-block" key={index}>
-                <p className="stcw-title">{block.title}</p>
-                <p className="stcw-description">{block.description}</p>
-              </div>
-            ))}
+      <div id="stcw-section" className="section bg-tertiary-color">
+        <div className="section-content">
+
+          <div className="section-header">
+            <p className="section-subtitle">STCW</p>
+            <h2 className="section-title">Get STCW Certified and Ready</h2>
           </div>
-          <div className="stcw-image">
-            <img src={kitten} alt="stcw" />
+
+          <div className="content-row">
+            <div className="card">
+              <img className="h-100" src={kitten} alt="stcw" />
+            </div>
+
+            <div className="content-column">
+              {stcwBlocks.map((block, index) => (
+                <div key={index}>
+                  <p className="body-header">{block.title}</p>
+                  <p>{block.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Logo Section */}
-      <div className="logo-section">
-        <div className="main-logo">
-          <img src={logo} alt="Pull North Yachting Logo" />
+      <div className="section">
+        <div className="section-content">
+
+          <div className="section-header">
+            <div className="logo">
+              <img src={logoLarge} alt="Sailing Voyager Logo" />
+            </div>
+
+            <p className="text-center">
+              All the training courses booked through Pull North Yachting are
+              accredited with the correct accreditations & we pride ourselves in the
+              quality of the facilities we are affiliated with. Please don't
+              hesitate to contact us if you need any further information.
+            </p>
+          </div>
+
+          <div className="content-row">
+            <div className="logo-partner">
+              <img src={logo} alt="Partner Logo 1" />
+            </div>
+            <div className="logo-partner">
+              <img src={logo} alt="Partner Logo 2" />
+            </div>
+            <div className="logo-partner">
+              <img src={logo} alt="Partner Logo 3" />
+            </div>
+          </div>
         </div>
-        <p className="logo-text">
-          All the training courses booked through Pull North Yachting are
-          accredited with the correct accreditations & we pride ourselves in the
-          quality of the facilities we are affiliated with. Please don't
-          hesitate to contact us if you need any further information.
-        </p>
-        <div className="partner-logos">
-          <div className="partner-logo">
-            <img src={logo} alt="Partner Logo 1" />
-          </div>
-          <div className="partner-logo">
-            <img src={logo} alt="Partner Logo 2" />
-          </div>
-          <div className="partner-logo">
-            <img src={logo} alt="Partner Logo 3" />
-          </div>
-        </div>
+
       </div>
 
-      <div id="gallery-section" className="gallery-section">
-        <div className="gallery-header">
-          <p>Gallery</p>
-          <h2>Unforgettable moments</h2>
+      <div id="gallery-section" className="section bg-tertiary-color">
+
+        <div className="section-header">
+          <p className="section-subtitle">Gallery</p>
+          <h2 className="section-title">Unforgettable moments</h2>
         </div>
 
-        <div className="gallery-container">
-          {currentGalleryPage > 0 && (
-            <button
-              className="gallery-nav-button prev"
-              onClick={handlePrevGallery}
-            >
-              &larr;
-            </button>
-          )}
+        <div className="content-column">
+          <div className="gallery-container">
 
-          <div className="gallery-grid">
-            {galleryPages[currentGalleryPage].map((image, index) => (
-              <div className="gallery-item" key={index}>
-                <img src={image} alt={`Gallery image ${index + 1}`} />
-              </div>
-            ))}
+            <div className="content-grid">
+              {galleryPages[currentGalleryPage].map((image, index) => (
+                <div className="card" key={index}>
+                  <img className="lock-aspect-ratio" src={image} alt={`Gallery image ${index + 1}`} />
+                </div>
+              ))}
+            </div>
+
           </div>
 
-          {currentGalleryPage < totalPages - 1 && (
-            <button
-              className="gallery-nav-button next"
-              onClick={handleNextGallery}
-            >
-              &rarr;
-            </button>
-          )}
+          <div className="content-row">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <div
+                key={index}
+                className={`pagination-dot ${index === currentGalleryPage ? "active" : ""
+                  }`}
+                onClick={() => setCurrentGalleryPage(index)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="gallery-pagination">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <div
-              key={index}
-              className={`pagination-dot ${
-                index === currentGalleryPage ? "active" : ""
-              }`}
-              onClick={() => setCurrentGalleryPage(index)}
-            />
-          ))}
-        </div>
+
       </div>
 
       {/* Testimonials Section */}
@@ -358,9 +376,8 @@ const HomeScreen: React.FC = () => {
           {Array.from({ length: totalTestimonialPages }).map((_, index) => (
             <div
               key={index}
-              className={`pagination-dot ${
-                index === currentTestimonialPage ? "active" : ""
-              }`}
+              className={`pagination-dot ${index === currentTestimonialPage ? "active" : ""
+                }`}
               onClick={() => setCurrentTestimonialPage(index)}
             />
           ))}
@@ -368,11 +385,13 @@ const HomeScreen: React.FC = () => {
       </div>
 
       {/* Contact Section */}
-      <div className="contact-section">
-        <div className="contact-header">
-          <p>Contact Us</p>
-          <h2>We Want To Hear From You</h2>
+      <div className="section">
+
+      <div className="section-header">
+          <p className="section-subtitle">Contact Us</p>
+          <h2 className="section-title">We Want To Hear From You</h2>
         </div>
+
 
         <div className="contact-container">
           <div className="contact-info">
@@ -402,76 +421,73 @@ const HomeScreen: React.FC = () => {
       </div>
 
       {/* Footer Section */}
-      <div className="footer-section">
-        <div className="footer-logo">
-          <img src={logo} alt="Sailing Voyager Logo" />
-        </div>
+      <div className="section bg-secondary-color">
+        <div className="section-content">
 
-        <div className="footer-info">
-          <p className="footer-heading">Location</p>
-          <p className="footer-text">
-            43 Riet Road
-            <br />
-            Loerie Park
-            <br />
-            Cape Town
-            <br />
-            6590
-          </p>
-        </div>
+          <div className="section-header">
+            <div className="logo">
+              <img src={logoLarge} alt="Sailing Voyager Logo" />
+            </div>
+          </div>
 
-        <div className="footer-info">
-          <p className="footer-heading">Opening Hours</p>
-          <p className="footer-text">
-            Monday to Friday
-            <br />
-            09:00 - 17:00
-          </p>
-        </div>
 
-        <div className="footer-info">
-          <p className="footer-heading">Contact Info</p>
-          <p className="footer-text">
-            +24 95 689 6578
-            <br />
-            Info@jousite.co.za
-          </p>
-        </div>
+          <div className="content-column text-center">
+            <div>
+              <p className="body-header">Location</p>
+              <p>
+                43 Riet Road
+                <br />
+                Loerie Park
+                <br />
+                Cape Town
+                <br />
+                6590
+              </p>
+            </div>
 
-        {/* 
-          Social Media Links
-          ------------------
-          1. For Facebook: Replace "your-facebook-page" with actual Facebook page username
-             Example: https://facebook.com/sailingvoyager
-          
-          2. For WhatsApp: Replace the phone number in the URL with your business phone number
-             - Format should be: country code + phone number without any symbols
-             - Example: https://wa.me/27956896578 (for South Africa +27)
-        */}
+            <div>
+              <p className="body-header">Opening Hours</p>
+              <p>
+                Monday to Friday
+                <br />
+                09:00 - 17:00
+              </p>
+            </div>
 
-        <div className="footer-social">
-          <a
-            href="https://facebook.com/your-facebook-page"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon"
-          >
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a
-            href="https://wa.me/2495689657"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon"
-          >
-            <i className="fab fa-whatsapp"></i>
-          </a>
-        </div>
+            <div>
+              <p className="body-header">Contact Info</p>
+              <p>
+                +24 95 689 6578
+                <br />
+                Info@jousite.co.za
+              </p>
+            </div>
 
-        <div className="footer-copyright">
-          <p>© 2025 All Rights Reserved.</p>
+
+            <div className="content-row">
+              <a
+                href="https://facebook.com/your-facebook-page"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://wa.me/2495689657"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <i className="fab fa-whatsapp"></i>
+              </a>
+            </div>
+            <hr></hr>
+            <p>Made With ❤ By Katkos.studio <br></br>© 2025 All Rights Reserved.</p>
+          </div>
         </div>
       </div>
+
     </>
   );
 };
